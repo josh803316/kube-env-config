@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.js.map
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Bun
+bun.lockb
+bun.lock
+
+# TypeScript
+*.tsbuildinfo
