@@ -11,7 +11,9 @@ function unwrap(result: unknown): unknown {
 
 async function callApi(api: ApiType, method: string, params: object): Promise<unknown> {
   logger.debug(`API call: ${method}`, params);
-  const result = await (api as unknown as ApiRecord)[method](params);
+  const operation = (api as unknown as ApiRecord)[method];
+  if (!operation) throw new Error(`Unknown API method: ${method}`);
+  const result = await operation(params);
   return unwrap(result);
 }
 
