@@ -26,7 +26,10 @@ export const KecConfigSchema = z.object({
   protectedEnvironments: z.array(z.string()).optional(),
   services: z.record(z.string(), ServiceConfigSchema).optional(),
   transforms: z
-    .record(z.string(), z.function().args(z.unknown(), z.unknown()).returns(z.unknown()))
+    .record(
+      z.string(),
+      z.function({ input: [z.unknown(), z.unknown()], output: z.unknown() }),
+    )
     .optional(),
 });
 
