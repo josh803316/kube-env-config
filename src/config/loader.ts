@@ -1,6 +1,7 @@
 import { existsSync } from 'fs';
 import { join, dirname } from 'path';
-import { KecConfig, KecConfigSchema } from './types.js';
+import { KecConfigSchema } from './types.js';
+import type { KecConfig } from './types.js';
 import { logger } from '../logger.js';
 
 const CONFIG_FILES = ['kec.config.ts', 'kec.config.js', '.kec/config.ts', '.kec/config.js'];
